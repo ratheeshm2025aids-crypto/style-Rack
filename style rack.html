@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StyleRack – Online Clothing Showcase</title>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        figure {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            transition: 0.4s;
+        }
+
+        figure:hover {
+            transform: scale(1.07);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        figure img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        figcaption {
+            padding: 15px;
+            text-align: center;
+        }
+
+        figcaption h3 {
+            margin: 5px 0;
+            color: #ff4b5c;
+        }
+
+        .price {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        button {
+            background: #ff4b5c;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff1e33;
+            transform: scale(1.1);
+        }
+
+        #cartBox {
+            margin-top: 25px;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 15px;
+            font-size: 22px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            width: 300px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>StyleRack – Online Clothing Showcase</h1>
+
+    <div id="cartBox">
+        🛒 Total: ₹<span id="total">0</span>
+    </div>
+
+    <div class="container">
+
+        <figure>
+            <img src="https://i5.walmartimages.com/seo/Aimik-George-Men-s-Fleece-Zip-Up-Hoodie-Warm-and-Cozy-Sherpa-Lined-Sweatshirt-Winter-Hoodie-Jackets-for-Men-with-Pockets-Black-XXXXXL_20246ea3-c69c-48b3-bc42-d2400b2f10cb.59ef53356f5fadc3113453f7ff488254.jpeg?odnHeight=768&odnWidth=576&odnBg=FFFFFF" alt="Hoodie">
+            <figcaption>
+                <h3>Winter Hoodie</h3>
+                <p class="price">₹799</p>
+                <button onclick="addToCart(799)">Add to Cart</button>
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://i5.walmartimages.com/seo/AnuYalue-Dress-Shirts-for-Men-Lightweight-Button-Up-Long-Sleeve-T-Shirt-Classic-Fit-Golf-Shirt-Lapel-Tshirt-with-Pocket_a36cde3d-b812-446c-afcb-e46939ba932d.2bb8646786de4c8f1d572b81b0a6cba4.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF" alt="T-shirt">
+            <figcaption>
+                <h3>Classic T-Shirt</h3>
+                <p class="price">₹499</p>
+                <button onclick="addToCart(499)">Add to Cart</button>
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images-na.ssl-images-amazon.com/images/I/7155p8b%2BnBL._AC_UL1280_.jpg" alt="Jacket">
+            <figcaption>
+                <h3>Stylish Jacket</h3>
+                <p class="price">₹1299</p>
+                <button onclick="addToCart(1299)">Add to Cart</button>
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://png.pngtree.com/png-vector/20250123/ourmid/pngtree-an-anarkali-style-kurti-png-image_15308903.png" alt="Kurti">
+            <figcaption>
+                <h3>Designer Kurti</h3>
+                <p class="price">₹899</p>
+                <button onclick="addToCart(899)">Add to Cart</button>
+            </figcaption>
+        </figure>
+
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(price) {
+            cart.push(price);
+            total += price;
+            document.getElementById("total").innerText = total;
+        }
+
+    </script>
+
+</body>
+</html>
